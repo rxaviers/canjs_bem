@@ -1,5 +1,5 @@
 {
-  "name": "can_bem",
+  "name": "canjs_bem",
   "version": "0.0.1",
   "devDependencies": {
     "grunt": "0.4.x",
