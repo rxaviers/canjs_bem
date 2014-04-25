@@ -29,6 +29,7 @@ define([
     if(blockName) {
       args = [block(blockName), options];
       constructor.bemSep = constructor.bemSep || "-";
+      this.bemBlock = element;
       proto.bemElement = bemElement;
       proto.find = find;
     }
