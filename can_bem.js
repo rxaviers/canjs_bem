@@ -2,6 +2,9 @@ define([
   "can/control"
 ], function(Control) {
 
+  var modifierPrefixDefault = "__";
+  var sepDefault = "-";
+
   function block(blockName) {
     return "." + blockName;
   }
@@ -11,6 +14,10 @@ define([
   function bemElement(elementName) {
     var constructor = this.constructor;
     return this.find(block(constructor.bemBlockName) + constructor.bemSep + elementName);
+  }
+
+  function bemModifier(modifier) {
+    return this.constructor.bemModifierPrefix + modifier;
   }
 
   function find() {
@@ -28,9 +35,11 @@ define([
 
     if(blockName) {
       args = [block(blockName), options];
-      constructor.bemSep = constructor.bemSep || "-";
+      constructor.bemSep = constructor.bemSep || sepDefault;
+      constructor.bemModifierPrefix = constructor.bemModifierPrefix || modifierPrefixDefault;
       this.bemBlock = element;
       proto.bemElement = bemElement;
+      proto.bemModifier = bemModifier;
       proto.find = find;
     }
 
